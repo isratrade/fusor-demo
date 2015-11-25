@@ -1,0 +1,370 @@
+/* custom.scss */
+
+.rhci-footer {
+  padding: 20px 10px 10px 10px;
+  height: 60px;
+}
+
+.rhci-footer-selected{
+  background-color: #eee; /*#5cb85c*/
+  vertical-align: middle;
+}
+
+.rhci-footer-unselected{
+  background-color:#eee;
+}
+
+.rhci-footer-box {
+  height: 100px;
+}
+
+.rhci-footer-hover {
+    padding:15px 5px;
+    text-align: center;
+    background-color: rgb(85, 77, 77); /*#d9edf7;*/
+    color: #fff; /* #31708f;*/
+    font-size:130%;
+}
+
+i.fa-check {
+  color: #0099d3;
+}
+
+.rhci-install-footer {
+  color: #0099d3;
+  font-size: 130%;
+}
+
+.rhci-item {
+  background-color:#eee;
+}
+
+.rhci-item-selected {
+  border-bottom: solid 6px #0099d3;
+}
+
+.subscriptions_needed {
+  padding: 10px;
+  border: solid 3px #ddd;
+}
+
+.subscriptions_needed p {
+  padding-top: 10px;
+  padding-left: 12px;
+}
+
+.rhci-item-text {
+  padding:10px;
+}
+
+.highlight {
+  background-color: yellow !important;
+}
+
+.yellow {
+  background-color: yellow !important;
+}
+
+.green {
+  background-color: green !important;
+}
+
+.red {
+  background-color: red !important;
+}
+.blue {
+  background-color: #428bca !important;
+}
+
+.checkmark {
+  font-size:150%;
+  text-align:center;
+}
+
+a {
+  cursor: pointer;
+}
+
+li {
+  cursor: pointer;
+}
+
+td a.active {
+  font-weight:bold;
+  font-size:120%;
+  background-color:#eee;
+}
+
+/* ACTIVE */
+ul.path-list {
+  margin:0px;
+  padding:0px;
+}
+label.env_path_active {
+  background: #00a8d6 !important;
+  color:#fff !important;
+}
+label.env_path_active:after {
+  border-left: 15px solid #00a8d6 !important;
+}
+
+label.env_path_disabled {
+  background: #999 !important;
+  color:#fff !important;
+}
+label.env_path_disabled:after {
+  border-left: 15px solid #999 !important;
+}
+
+.green-circle {
+  color: green;
+}
+
+.errorForValidation {
+  color: #a94442;
+}
+
+.errorForValidation a {
+  color: #a94442;
+}
+
+.warningForValidation, .warningForValidation a {
+  color: #ec7a08;
+}
+
+.defaultValue {
+  color: #999;
+}
+
+.defaultValue a {
+  color: #999;
+}
+
+.deployment_name {
+  display: inline;
+}
+
+.gray .grey {
+  background-color: #ddd !important;
+}
+
+.progress-bar-label {
+  font-weight: bold;
+}
+
+.no-bold {
+  font-weight: normal !important;
+}
+
+.bold {
+  font-weight: bold !important;
+}
+
+th {
+  padding-left: 10px;
+}
+
+.default_org_view {
+  border: 1px solid #d7d7d7;
+  padding: 10px;
+  display: inline-block;
+}
+
+.center {
+  text-align: center;
+}
+
+.white-on-blue {
+  background: #00a8d6;
+  color:#fff;
+}
+
+.black-font {
+  color:#000 !important;
+}
+
+.white-font {
+  color:#fff !important;
+}
+
+li.disabled a {
+  color: #999 !important;
+}
+
+.disabled {
+  color: #999 !important;
+}
+
+.no_subscriptions {
+  text-align: center;
+  padding: 10px 0px 5px;
+}
+
+.disabledImage {
+  opacity: 0.5;
+}
+
+.ident-radio {
+  padding-left: 15px;
+}
+
+.spinner-text {
+  font-size: 20px;
+}
+
+.rhev-searchbar {
+  background-color: #f6f6f6;
+  padding: 5px 0px;
+  border-top: 1px solid #d1d1d1;
+  border-right: 1px solid #d1d1d1;
+  border-left: 1px solid #d1d1d1;
+  margin-right: 1px;
+}
+
+.rhev-search-box {
+  margin-left: -15px;
+}
+
+.rhev-search-input {
+  width: 200px !important;
+}
+
+.not-selected {
+  font-style: italic;
+  color: #555 !important;
+}
+
+.rhev-search-button {
+  display:inline;
+  margin-left:-3px;
+}
+
+table.fusor-table {
+  table-layout: fixed;
+}
+
+.rhev-checkbox {
+  width:34px;
+}
+
+.rhev-hostname {
+  width: 20%;
+}
+
+.rhev-mac-address {
+  width: 18%;
+}
+
+.rhev-host-type {
+  width: 9%;
+}
+
+.rhev-memory {
+  width: 8%;
+}
+
+.rhev-disks {
+  width: 7%;
+}
+
+.rhev-cpu {
+  width: 7%;
+}
+
+.rhev-diskspace {
+  width: 8%;
+}
+
+.rhev-network {
+  width: 20%;
+}
+
+.rhev-select-all {
+  padding: 0px 20px;
+}
+
+.org-radio-btn {
+  width: 34px;
+}
+
+.accordion-item {
+  padding-bottom: 10px;
+}
+
+.accordion-item-title {
+  cursor: pointer;
+}
+
+.invalid-input {
+  border:2px solid red;
+}
+
+/* override alert padding in Sat6 that is 34px */
+.rhci-alert {
+  padding-left: 15px !important;
+}
+
+.rhci-review-product-name {
+  white-space: nowrap;
+}
+
+.loading-spinner {
+  display: inline-block;
+  position: fixed;
+  left: 40%;
+  top: 40%;
+}
+
+.loading-spinner-content {
+  display: inline-block;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.scrollable-form {
+  overflow: auto;
+}
+
+.rhci-popover-button {
+  outline: none;
+  color:#0099d3;
+  background:none!important;
+  border:none;
+  padding:0!important;
+  cursor: pointer;
+}
+
+.eye-icon {
+  position: relative;
+  top: -20px;
+  float: right;
+  padding-right: 10px;
+}
+
+.rhci-popover-button {
+  outline: none;
+  color:#0099d3;
+  background:none!important;
+  border:none;
+  padding:0!important;
+  cursor: pointer;
+}
+
+.new-deployment-button {
+  float:right;
+  margin-top: -33px;
+}
+
+.filter-deployments {
+  margin-left: -18px;
+}
+
+.help-block {
+  font-style: italic;
+}
+
+.osp-autogeneric-label {
+  font-weight:normal !important;
+  padding-left: 15px;
+  margin-top: -4px;
+}

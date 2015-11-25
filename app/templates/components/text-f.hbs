@@ -1,0 +1,62 @@
+{{#base-f label=label labelSize=labelSize inputSize=inputSize unitsSize=unitsSize unitsLabel=unitsLabel help-inline=help-inline errors=errors isRequired=isRequired hasError=hasError helpText=helpText}}
+
+  {{input class="form-control" value=value placeholder=placeholder type=typeInput focus-out="showValidationErrors" id=cssId disabled=disabled autocomplete='off'
+  maxlength="250"}}
+
+  {{#if canShowPassword}}
+          <i {{action 'showPassword'}} class="fa {{eyeIcon}} eye-icon"></i>
+  {{/if}}
+
+  {{#if showValidationError}}
+    {{#if validIsRequiredAndBlank}}
+        <span class="error errorForValidation">
+            cannot be blank
+        </span>
+    {{/if}}
+
+    {{#if doesntMatchPassword}}
+      <span class="error errorForValidation">
+            passwords don't match
+        </span>
+    {{/if}}
+
+    {{#if passwordTooShort}}
+        <span class="error errorForValidation">
+            must be {{minChars}} or more characters
+        </span>
+    {{/if}}
+
+    {{#if validIsUnique}}
+        <span class="error errorForValidation">
+            must be unique
+        </span>
+    {{/if}}
+
+    {{#if invalidIsAlphaNumeric}}
+        <span class="error errorForValidation">
+            must contain only 'A-Z', 'a-z', '0-9', '_' or '-' characters
+        </span>
+    {{/if}}
+
+    {{#if invalidIsHostname}}
+        <span class="error errorForValidation">
+            invalid hostname
+        </span>
+    {{/if}}
+
+    {{#if invalidNetworkRange}}
+        <span class="error errorForValidation">
+            invalid network range
+        </span>
+    {{/if}}
+
+      <span class="error errorForValidation">
+          {{errors.name}}
+      </span>
+  {{/if}}
+
+
+  {{yield}}
+
+{{/base-f}}
+

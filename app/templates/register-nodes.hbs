@@ -1,0 +1,96 @@
+{{#if showAlertMessage}}
+    <div class="row">
+        <div class='col-md-9'>
+            <div class='alert alert-success rhci-alert'>
+                <i class="fa fa-2x fa-check-circle-o green-circle"></i>
+                &nbsp;
+              {{registeredNode.name}} registered successfully.
+            </div>
+        </div>
+    </div>
+{{/if}}
+
+{{#if registrationError}}
+<div class="progress-description">
+      <span class="pficon-layered" data-toggle="tooltip" data-placement="top" title={{registrationErrorTip}}>
+          <span class="pficon pficon-error-octagon"></span>
+          <span class="pficon pficon-error-exclamation"></span>
+            <strong>Error:</strong>  {{registrationErrorMessage}}
+        </span>
+</div>
+{{/if}}
+
+{{#if hasIntrospectionTasks}}
+
+    <div class="row">
+        <div class='col-md-5'>
+            <h2>Registering Nodes</h2>
+        </div>
+    </div>
+
+    {{#each arrayTasks as |introspectionTask| }}
+      {{progress-bar model=introspectionTask isNodeProgressBar=true}}
+    {{/each}}
+
+{{else}}
+  <div class="row">
+    <div class='col-md-5'>
+      <h2>Register Nodes</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class='col-md-7'>
+    {{#if noRegisteredNodes}}
+      <p>
+        Currently, there are no registered nodes available. You must have at least 2 nodes in order to continue this deployment. Use the Register Nodes button below to begin the registration process.
+      </p>
+    {{else}}
+      <p>
+        You can register more nodes to coalesce into Flavors. Use the Register Nodes button below to begin the registration process.
+      </p>
+    {{/if}}
+    </div>
+  </div>
+{{/if}}
+
+<div class="row">
+    <div class='col-md-5'>
+      <button class="btn btn-primary" {{action "showNodeRegistrationModal"}}>
+          Register Nodes
+      </button>
+    </div>
+</div>
+
+{{#unless noProfiles}}
+  <div class="row">
+      <div class='col-md-5'>
+          <h2>Flavors</h2>
+      </div>
+  </div>
+
+  {{#each model.profiles as |profile|}}
+      <div class="row">
+          <div class='col-md-7'>
+            {{#if model.nodes}}
+              {{node-profile profile=profile
+                             nodes=model.nodes
+                             stepNumberOpenstack=stepNumberOpenstack}}
+            {{else}}
+              {{node-profile profile=profile
+                             stepNumberOpenstack=stepNumberOpenstack}}
+            {{/if}}
+          </div>
+      </div>
+  {{/each}}
+{{/unless}}
+
+<br />
+
+{{cancel-back-next backRouteName='undercloud-deploy'
+                   disableBack=false
+                   nextRouteName='assign-nodes'
+                   disableNext=disableRegisterNodesNext
+                   disableCancel=deploymentController.isStarted}}
+
+{{partial 'new-node-registration'}}

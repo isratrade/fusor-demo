@@ -1,0 +1,95 @@
+<div class='row'>
+  <div class='col-lg-9'>
+
+    {{#if isLoadingHosts}}
+      <div class="spinner spinner-md spinner-inline"></div>
+      <span class='spinner-text'>
+        Loading ....
+      </span>
+
+    {{else}}
+
+      <div class="rhev-searchbar clearfix">
+        <form class="form-inline">
+          <div class='col-md-5'>
+            <div class="form-group">
+              <div class='rhev-search-box'>
+                  {{input type='text' class='form-control rhev-search-input'
+                               placeholder=' Search ...'
+                               value=searchString
+                               disabled=isStarted}}
+              </div>
+            </div>
+          </div>
+
+          <div class='col-md-7 text-right'>
+
+            {{model.length}} selected
+
+            {{#if isNotStarted}}
+              <span class='rhev-select-all'>
+                {{#if isAllChecked}}
+                  <a {{action 'setUncheckAll'}}>Deselect all ({{availableHosts.length}})</a>
+                {{else}}
+                  <a {{action 'setCheckAll'}}>Select all ({{availableHosts.length}})</a>
+                {{/if}}
+              </span>
+            {{/if}}
+
+            <button class='btn btn-default btn-sm' {{action 'openNamingSchemeModal'}}
+                    disabled={{isStarted}}>
+                Edit Naming Scheme
+            </button>
+
+            <button class='btn btn-default btn-sm' {{action 'refreshDiscoveredHosts'}}
+                    disabled={{isStarted}}>
+                Refresh Data
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+      <table class="table table-bordered small fusor-table">
+        <thead>
+          <tr>
+            <th class='rhev-checkbox'> {{!input type="checkbox" checked=allChecked}}</th>
+            <th class='rhev-hostname'> Host Name </th>
+            <th class='rhev-mac-address'> MAC Address </th>
+            <th class='rhev-host-type text-center'> Host Type </th>
+            <th class='rhev-cpu text-center'> CPU </th>
+            <th class='rhev-memory text-center'> Memory </th>
+            <th class='rhev-disks text-center'> # Disks </th>
+            <th class='rhev-diskspace text-center'> Disk Space </th>
+            <th class='rhev-network'> Network </th>
+          </tr>
+        </thead>
+
+        <tbody>
+        {{#each filteredHosts as |host|}}
+           {{tr-hypervisor host=host
+                           model=model
+                           isCustomScheme=isCustomScheme
+                           isMac=isMac
+                           isHypervisorN=isHypervisorN
+                           customPreprendName=customPreprendName
+                           isFreeform=isFreeform
+                           num=host.id
+                           disabled=isStarted
+                           filteredHosts=filteredHosts}}
+        {{/each}}
+        </tbody>
+      </table>
+
+    {{/if}}
+
+  </div>
+</div>
+
+{{#cancel-back-next backRouteName=hypervisorBackRouteName
+                    disableBack=false
+                    disableCancel=isStarted}}
+  <button {{action 'saveHyperVisors' 'rhev-options'}} class='btn btn-primary' disabled={{rhevController.hasNoHypervisor}}>Next</button>
+{{/cancel-back-next}}
+
+{{partial 'naming-scheme-modal'}}

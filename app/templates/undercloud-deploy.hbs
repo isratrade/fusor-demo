@@ -1,0 +1,58 @@
+{{#unless isDeployed}}
+<div class="row">
+  <div class='col-md-9'>
+    <form class="form-horizontal" role="form">
+        {{text-f label="Undercloud IP"
+                 value=undercloudIP
+                 labelSize='deploy-undercloud-param-label'
+                 inputSize='deploy-undercloud-param-input'
+                 isRequired=true
+                 helpText=undercloudIPHelp}}
+        {{text-f label="SSH User"
+                 value=sshUser
+                 labelSize='deploy-undercloud-param-label'
+                 inputSize='deploy-undercloud-param-input'
+                 isRequired=true}}
+        {{text-f label="SSH Password"
+                 value=sshPassword
+                 labelSize='deploy-undercloud-param-label'
+                 inputSize='deploy-undercloud-param-input'
+                 type='password'
+                 isRequired=true}}
+
+        <button class="btn btn-primary pull-left"
+                {{action "deployUndercloud"}}
+                disabled={{deployDisabled}}>
+            Detect Undercloud
+        </button>
+    </form>
+
+    {{#if deploymentError}}
+        <div class='col-md-9' style="padding-top: 10px;">
+            <div class="alert alert-danger" style="margin-bottom: 0px;">
+                <span class="pficon pficon-error-circle-o"></span>
+                Undercloud detection failed: {{deploymentError}}
+            </div>
+        </div>
+    {{/if}}
+  </div>
+</div>
+{{else}}
+<div class="row">
+  <div class='col-md-9'>
+    <div class='col-md-9' style="padding-top: 10px;">
+        <div class="alert alert-success" style="margin-bottom: 0px;">
+            <span class="pficon pficon-ok"></span>
+            Undercloud has been successfully detected. If you want to connect to a different undercloud <a {{action 'resetCredentials'}}> click here to enter new credentials</a>.
+        </div>
+    </div>
+  </div>
+</div>
+{{/unless}}
+
+{{cancel-back-next backRouteName=backRouteNameUndercloud
+                   disableBack=false
+                   nextRouteName='register-nodes'
+                   disableNext=disableDeployUndercloudNext
+                   }}
+{{loading-spinner show=showLoadingSpinner text=loadingSpinnerText}}

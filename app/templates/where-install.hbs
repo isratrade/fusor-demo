@@ -1,0 +1,34 @@
+<div class='row'>
+  <div class='col-md-9'>
+
+    <p>
+      Select a product to create and manage virtual machines.
+    </p>
+
+    <div class='ident-radio'>
+      {{#radio-button value="RHEV" groupValue=cfmeInstallLoc changed="cfmeLocationChanged" id="install_on_rhev" disabled=disableRHEVradio}}
+        <span class="{{if disableRHEV 'disabled'}}">
+          Install CloudForms on Red Hat Enterprise Virtualization
+        </span>
+      {{/radio-button}}
+    </div>
+
+    <div class='ident-radio'>
+      {{#radio-button value="OpenStack" groupValue=cfmeInstallLoc changed="cfmeLocationChanged" id="install_on_openstack" disabled=disableOpenstackradio}}
+        <span class="inline-block {{if disableOpenStack 'disabled'}}">
+          Install CloudForms on Red Hat Enterprise Linux OpenStack Platform
+          <p style='margin-left:16px;'>
+            Able to split virtualization workloads across multiple controller nodes
+          </p>
+        </span>
+      {{/radio-button}}
+    </div>
+
+  </div>
+</div>
+
+{{cancel-back-next backRouteName=backRouteName
+                   disableBack=false
+                   nextRouteName='cloudforms.cfme-configuration'
+                   disableNext=isInvalidCfmeInstallLocation
+                   disableCancel=isStarted}}

@@ -1,0 +1,54 @@
+<div class='row'>
+  <div class='col-md-12'>
+    <br />
+    <h2>New Deployment: Select Cloud Infrastructure Products</h2>
+
+    Choose the products to deploy. This wizard guides you through creating a new {{nameRedHat}} Cloud Infrastructure deployment.
+    <br />
+    <br />
+  </div>
+</div>
+
+<div class='row' style='height:370px;'>
+
+  <div class='col-md-4'>
+    {{rhci-item srcImage=imgRhev isChecked=isRhev name=nameRhev cssId='is_rhev'}}
+  </div>
+
+  <div class='col-md-4'>
+    {{rhci-item srcImage=imgOpenStack isChecked=isOpenStack name=nameOpenStack cssId='is_openstack'}}
+  </div>
+
+  <div class='col-md-4'>
+    {{rhci-item srcImage=imgCloudForms isChecked=isCloudForms name=nameCloudForms cssId='is_cloudforms' isDisabled=isDisabledCfme}}
+  </div>
+
+</div>
+
+{{#unless isUpstream}}
+<div class='subscriptions_needed'>
+
+  <i class="fa fa-info-circle"></i>
+  <strong>Before you begin:</strong>
+
+  <p>
+    <strong>Subscriptions required to complete this deployment.</strong> Check your account in the <a href='https://idp.redhat.com/idp/' target='_blank'>Red Hat Customer Portal</a> to verify you have subscriptions available to cover the selected products.
+    <br />
+    <strong>Start up host machines.</strong> Ensure that the bare-metal computers and the virtual machines that you plan to use are turned on and discoverable.
+    <br />
+    <strong>Configure your network.</strong> Ensure that the network and subnets are set up and available.
+  </p>
+
+</div>
+{{/unless}}
+
+<br />
+<div class='row'>
+  <div class='col-md-12'>
+    <div style='float:right;'>
+      {{#link-to 'deployments' class="btn btn-default"}}Cancel{{/link-to}}
+      {{#link-to satelliteTabRouteName class="btn btn-primary" disabled=disableNextOnStart}}Select{{/link-to}}
+      {{!satelliteTabRouteName}}
+    </div>
+  </div>
+</div>

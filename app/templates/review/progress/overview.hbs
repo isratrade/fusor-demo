@@ -1,0 +1,15 @@
+<br />
+
+{{progress-bar model=manageContentTask name=nameSatellite isSatelliteProgressBar=true}}
+
+{{#if isRhev}}
+  {{progress-bar model=rhevTask name=nameRhev isSatelliteProgressBar=false}}
+{{/if}}
+
+{{#if isOpenStack}}
+  {{progress-bar model=openstackTask name=nameOpenStack isSatelliteProgressBar=false}}
+{{/if}}
+
+{{#if isCloudForms}}
+  {{progress-bar model=cfmeTask name=nameCloudForms isSatelliteProgressBar=false}}
+{{/if}}

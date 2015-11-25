@@ -1,0 +1,33 @@
+<div class='row'>
+  <div class='col-md-9'>
+    <p>
+      Select the setup type.
+    </p>
+
+    <div class='ident-radio'>
+      {{#radio-button value="selfhost" groupValue=rhevSetup changed="rhevSetupChanged" id='selfhost' disabled=deploymentController.isStarted}}
+        <span class="{{if deploymentController.isStarted 'disabled'}}">
+          Self-hosted
+        </span>
+      {{/radio-button}}
+    </div>
+
+    <div class='ident-radio'>
+      {{#radio-button value="rhevhost" groupValue=rhevSetup changed="rhevSetupChanged" id='rhevhost' disabled=isStarted}}
+      <span class="{{if isStarted 'disabled'}}">
+        Hypervisor + engine
+      </span>
+      {{/radio-button}}
+    </div>
+
+  </div>
+</div>
+
+<br />
+
+{{cancel-back-next backRouteName='satellite.access-insights'
+                   disableBack=false
+                   nextRouteName='engine.discovered-host'
+                   disableNext=false
+                   disableCancel=isStarted}}
+

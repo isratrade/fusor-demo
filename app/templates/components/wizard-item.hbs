@@ -1,0 +1,7 @@
+{{#if isDisabled}}
+  {{num}}. {{name}}
+{{else}}
+  {{#link-to routeName}}
+    {{num}}. {{name}}
+  {{/link-to}}
+{{/if}}

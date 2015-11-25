@@ -1,0 +1,7 @@
+{{#if isEmberCliMode}}
+  {{partial "mainmenu"}}
+{{/if}}
+
+<div class="{{if isContainer 'container' 'container-fluid'}}">
+  {{outlet}}
+</div>

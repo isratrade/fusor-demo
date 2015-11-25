@@ -1,0 +1,17 @@
+<div class="row">
+  <div class='col-md-9'>
+    <form class="form-horizontal" role="form">
+
+      {{text-f label="Name" value=model.name inputSize='col-md-5' errors=errors cssId=idSatName
+               isRequired=true disabled=isStarted isUnique=true uniqueValues=deploymentNames}}
+
+      {{textarea-f label="Description (Optional)" value=model.description inputSize='col-md-5' cssId=idSatDesc disabled=isStarted }}
+
+    </form>
+  </div>
+</div>
+{{cancel-back-next backRouteName=backRouteNameOnSatIndex
+                   disableBack=false
+                   nextRouteName=organizationTabRouteName
+                   disableNext=disableNextOnDeploymentName
+                   disableCancel=isStarted}}

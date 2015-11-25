@@ -1,0 +1,36 @@
+{{#unless isHideWizard}}
+<br />
+<div class="row">
+  {{rhci-wizard name=model.name
+                nameRHCI=nameRHCI
+                nameSatellite=nameSatellite
+                routeNameSatellite=routeNameSatellite
+                nameRhev=nameRhev
+                nameOpenStack=nameOpenStack
+                nameCloudForms=nameCloudForms
+                fullnameRhev=fullnameRhev
+                fullnameOpenStack=fullnameOpenStack
+                fullnameCloudForms=fullnameCloudForms
+                stepNumberRhev=stepNumberRhev
+                stepNumberOpenstack=stepNumberOpenstack
+                stepNumberCloudForms=stepNumberCloudForms
+                stepNumberSubscriptions=stepNumberSubscriptions
+                stepNumberReview=stepNumberReview
+                isDisabledRhev=isDisabledRhev
+                isDisabledOpenstack=isDisabledOpenstack
+                isDisabledCloudForms=isDisabledCloudForms
+                isDisabledSubscriptions=isDisabledSubscriptions
+                isDisabledReview=isDisabledReview
+                isRhev=isRhev
+                isOpenStack=isOpenStack
+                isCloudForms=isCloudForms
+                isSubscriptions=isSubscriptions
+                currentStepNumber=currentStepNumber
+                errorMsg=errorMsg
+                }}
+</div>
+{{/unless}}
+
+<div class="row parent-sidebar-pf">
+ {{outlet}}
+</div>

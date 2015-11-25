@@ -1,0 +1,26 @@
+<td>
+  {{input type="checkbox" name="isSelectedAsHypervisor" checked=isSelectedAsHypervisor id=cssIdHostId disabled=disabled}}
+</td>
+
+<td class="{{if isSelectedAsHypervisor 'white-font' 'not-selected'}}">
+  {{#if isSelectedAsHypervisor}}
+    {{#if isFreeform}}
+      {{#if disabled}}
+          {{host.name}}
+      {{else}}
+          {{input type="text" value=host.name class='form-control' focus-out='saveHostname' id=cssHostHostId }}
+      {{/if}}
+    {{else}}
+      {{host.name}}
+    {{/if}}
+  {{else}}
+    Not Selected
+  {{/if}}
+</td>
+<td> {{host.mac}} </td>
+<td class='text-center'> {{host-type host}} </td>
+<td class='text-center'> {{host.cpus}} CPU</td>
+<td class='text-center'> {{host.memory_human_size}}</td>
+<td class='text-center'> {{host.disk_count}} </td>
+<td class='text-center'> {{host.disks_human_size}} </td>
+<td> {{host.subnet_to_s}} </td>
